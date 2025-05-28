@@ -1,0 +1,46 @@
+📝 Boggle Game Worksheet
+========================
+
+Part A: Fill in the Blanks
+---------------------------
+
+1. What are the dimensions of the screen?
+   → WIDTH = ________, HEIGHT = ________
+
+2. What should happen in is_valid_word() when a word is not in the cache?
+   → ________________________________________________________________
+   → ________________________________________________________________
+
+3. What are the correct score values for each word length in word_score(word)?
+   - length < 3 → __________
+   - length 3–4 → __________
+   - length == 5 → __________
+   - length == 6 → __________
+   - length == 7 → __________
+   - length >= 8 → __________
+
+4. What happens when the player types a word and presses Enter?
+   → ________________________________________________________________
+   → ________________________________________________________________
+
+5. How is the game timer displayed and calculated?
+   - Time format shown: ___________
+   - Countdown logic: ______________________________________________
+
+Part B: Discussion & Exploration
+--------------------------------
+
+1. How does the `is_valid()` function ensure that a word follows Boggle rules
+   (letters must be adjacent and not reused)?
+   → ________________________________________________________________
+   → ________________________________________________________________
+
+2. Why is the letter 'Q' treated differently on the board?
+   → ________________________________________________________________
+
+3. What makes a valid English word in this game?
+   → ________________________________________________________________
+
+4. Could the game work without the online dictionary API? How?
+   → ________________________________________________________________
+   → ________________________________________________________________

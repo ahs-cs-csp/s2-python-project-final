@@ -1,0 +1,80 @@
+===============================
+SPACE INVADERS – WORKSHEET
+(Parson’s Problem Edition)
+===============================
+
+You're given a partially completed Space Invaders game made in Pygame. 
+Some essential parts of the code have been replaced with "...". 
+Your task is to figure out what goes there to complete the game!
+
+--------------------------------
+1. PLAYER MOVEMENT
+--------------------------------
+Q1: What variable stores the change in the player's x-position?
+
+    if event.key == pygame.K_LEFT:
+        player_x_change = ...
+
+    if event.key == pygame.K_RIGHT:
+        player_x_change = ...
+
+Q2: What should happen when the player releases the key?
+
+    if event.key in [pygame.K_LEFT, pygame.K_RIGHT]:
+        player_x_change = ...
+
+Q3: How do we update the player’s position?
+
+    player_x += ...
+    player_x = max(0, min(WIDTH - player_width, player_x))
+
+--------------------------------
+2. SHOOTING A BULLET
+--------------------------------
+Q4: When the spacebar is pressed and bullet_state is "ready", what should happen?
+
+    if event.key == pygame.K_SPACE and bullet_state == "ready":
+        bullet_x = ...
+        bullet_y = ...
+        bullet_state = ...
+
+Why do we check for "ready" before allowing the player to shoot?
+
+--------------------------------
+3. ENEMY MOVEMENT & BOUNCE
+--------------------------------
+Q5: When an enemy reaches the edge, it should bounce and move down:
+
+    if enemy_x[i] <= 0 or enemy_x[i] >= WIDTH - enemy_width:
+        enemy_speed_x[i] *= ...
+        enemy_y[i] += ...
+
+--------------------------------
+4. BULLET COLLISION
+--------------------------------
+Q6: When a bullet hits an enemy:
+
+    if is_collision(enemy_x[i], enemy_y[i], bullet_x, bullet_y):
+        bullet_y = ...
+        bullet_state = ...
+        score += ...
+
+What happens to the enemy after it is hit?
+
+--------------------------------
+5. DIFFICULTY SCALING
+--------------------------------
+Q7: This logic increases difficulty as score increases:
+
+    if score % 5 == 0:
+        for j in range(num_of_enemies):
+            enemy_speed_x[j] += 1 if enemy_speed_x[j] > 0 else -1
+
+What does this accomplish in terms of gameplay?
+
+--------------------------------
+6. FINAL CHALLENGE
+--------------------------------
+Once you've filled in all the blanks, run the game. If something doesn't work, debug one part at a time. Try printing variables or adding comments to check your logic!
+
+Good luck, and have fun coding! 🚀
