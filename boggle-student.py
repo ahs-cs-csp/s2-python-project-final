@@ -124,4 +124,52 @@ def main():
             screen.blit(end_text, (WIDTH // 2 - 100, 600))
             pygame.display.flip()
             pygame.time.wait(4000)
-            run
+            running = False
+            continue
+
+        draw_board(board)
+
+        pygame.draw.rect(screen, BLACK, (50, 470, 500, 40), 2)
+        word_surface = small_font.render(input_word, True, BLACK)
+        screen.blit(word_surface, (60, 475))
+
+        score_text = small_font.render(f"Score: {score}", True, BLACK)
+        screen.blit(score_text, (50, 530))
+
+        msg_text = small_font.render(message, True, GREEN if "✓" in message else RED)
+        screen.blit(msg_text, (50, 560))
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN and remaining > 0:
+                if event.key == pygame.K_RETURN:
+                    if input_word.upper() in found_words:
+                        message = ...
+                    elif is_valid_word(input_word) and is_valid(input_word, board):
+                        found_words.add(input_word.upper())
+                        points = word_score(input_word)
+                        score += points
+                        message = ...
+                    else:
+                        message = ...
+                    input_word = ""
+                elif event.key == pygame.K_BACKSPACE:
+                    input_word = input_word[:-1]
+                elif event.unicode.isalpha():
+                    input_word += event.unicode.upper()
+
+        pygame.display.flip()
+        pygame.time.Clock().tick(30)
+
+    screen.fill(WHITE)
+    final_text = big_font.render("Game Over!", True, BLACK)
+    screen.blit(final_text, (WIDTH // 2 - 120, 250))
+    final_score = font.render(f"Final Score: {score}", True, BLUE)
+    screen.blit(final_score, (WIDTH // 2 - 100, 310))
+    pygame.display.flip()
+    pygame.time.wait(5000)
+    pygame.quit()
+
+if __name__ == "__main__":
+    main()
