@@ -10,13 +10,13 @@ WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Invaders - Parson's Problem")
 
-# Colors
+# STEP 1: Look up how to set the missing colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
-RED = (255, 0, 0)
-YELLOW = (255, 255, 0)
-GREEN = (0, 255, 0)
+RED = ...
+YELLOW = ...
+GREEN = ...
 
 # Fonts
 font = pygame.font.SysFont(None, 36)
@@ -118,6 +118,13 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+        # STEP 2: player_speed controls the change in x; set the correct 
+        #         change for left and rigt movement
+        # Step 3: when the spacebar is pressed, the bullet should leave from the 
+        #         player -- set up the bullet x, y and state. Look in the code
+        #         for the two values that bullet_state should be set to
+        # Step 4: what happens the arrows keys are released? Fix the KEYUP event
+        #           below
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 player_x_change = ...
@@ -143,6 +150,9 @@ while running:
     for i in range(num_of_enemies):
         enemy_x[i] += enemy_speed_x[i]
 
+        # STEP 5: When the enemy hits the edge of the screen
+        #           they reverse direction and move down the screen
+        #           enemy_speed_y controls the y-direction of the enemies
         if enemy_x[i] <= 0 or enemy_x[i] >= WIDTH - enemy_width:
             enemy_speed_x[i] *= ...
             enemy_y[i] += ...
@@ -155,6 +165,8 @@ while running:
                 high_score = score
             break
 
+        # STEP 6: A bullet hits an enemy, set the bullet_y and
+        #         bullet_state correctly 
         if is_collision(enemy_x[i], enemy_y[i], bullet_x, bullet_y):
             bullet_y = ...
             bullet_state = ...

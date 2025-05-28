@@ -5,6 +5,7 @@ import time
 import requests
 
 pygame.init()
+# Step 1: How Big of a window?
 WIDTH, HEIGHT = ..., ...
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Boggle")
@@ -13,6 +14,7 @@ font = pygame.font.SysFont("Arial", 36)
 small_font = pygame.font.SysFont("Arial", 24)
 big_font = pygame.font.SysFont("Arial", 48)
 
+# Step #2: Look Up RGB codes for the missing colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = ...
@@ -34,16 +36,27 @@ def is_valid_word(word):
     if word in word_cache:
         return word_cache[word]
     url = f"https://api.dictionaryapi.dev/api/v2/entries/en/{word}"
-    response = ...
+    response = requests.get(...)
     is_valid = response.status_code == 200
     word_cache[word] = is_valid
     return is_valid
 
+# STEP 3: This returns a 4x4 list of lists of one random 
+# letter from each "die" in BOGGLE_DICE
 def generate_board():
-    dice = BOGGLE_DICE[:]
-    random.shuffle(dice)
-    return [[random.choice(dice[i * 4 + j]) for j in range(4)] for i in range(4)]
+    temp_board = []
+    boggle_dice_index = 0
+    for r in range(...):
+        row = []
+        for c in range(...):
+            die = BOGGLE_DICE[...]
+            row.append(die[random.randint(..., ...)])
+            boggle_dice_index = ... + 1
+        temp_board.append(...) 
+            
+    return temp_board
 
+# STEP 4: return a score for each word length
 def word_score(word):
     length = len(word)
     if length < 3:
@@ -59,11 +72,13 @@ def word_score(word):
     else:
         return ...
 
+# STEP 5: get the letter from the board
+# to put on the screen
 def draw_board(board):
     cell_size = 100
-    for i in range(4):
-        for j in range(4):
-            rect = pygame.Rect(j * cell_size + 50, i * cell_size + 50, cell_size, cell_size)
+    for row in range(4):
+        for col in range(4):
+            rect = pygame.Rect(col * cell_size + 50, row * cell_size + 50, cell_size, cell_size)
             pygame.draw.rect(screen, GRAY, rect)
             pygame.draw.rect(screen, BLACK, rect, 3)
             letter = ...
@@ -82,11 +97,11 @@ def is_valid(word, board):
         if cell == 'Q':
             if not word.startswith('QU'):
                 return False
-            word = ...
+            word = word[2:]
         else:
             if not word.startswith(cell):
                 return False
-            word = ...
+            word = word[1:]
         visited.add((x, y))
         for dx in [-1, 0, 1]:
             for dy in [-1, 0, 1]:
@@ -101,6 +116,14 @@ def is_valid(word, board):
                 return True
     return False
 
+# STEP 6: 6 "..." to complete
+# - set the duration in seconds
+# - big_font.render -- look pygame font render
+# - Place the "Times Up!" line  in the middle of the screen
+# - Set three appropriate messages for when:
+#   - word has already been used, 
+#   - when the word is valid, and 
+#   - when the word given is not a word
 def main():
     board = generate_board()
     input_word = ""
@@ -120,8 +143,8 @@ def main():
         screen.blit(timer_text, (WIDTH // 2 - 40, 10))
 
         if remaining == 0:
-            end_text = ...
-            screen.blit(end_text, (WIDTH // 2 - 100, 600))
+            end_text = big_font.render("Times Up!", True, RED)
+            screen.blit(end_text, (..., ...))
             pygame.display.flip()
             pygame.time.wait(4000)
             running = False

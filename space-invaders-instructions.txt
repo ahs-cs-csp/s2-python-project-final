@@ -1,6 +1,5 @@
 ===============================
 SPACE INVADERS – WORKSHEET
-(Parson’s Problem Edition)
 ===============================
 
 You're given a partially completed Space Invaders game made in Pygame. 
@@ -75,6 +74,8 @@ What does this accomplish in terms of gameplay?
 --------------------------------
 6. FINAL CHALLENGE
 --------------------------------
-Once you've filled in all the blanks, run the game. If something doesn't work, debug one part at a time. Try printing variables or adding comments to check your logic!
+Once you've filled in all the blanks, run the game. 
+If something doesn't work, debug one part at a time. 
+Try printing variables or adding comments to check your logic!
 
-Good luck, and have fun coding! 🚀
+

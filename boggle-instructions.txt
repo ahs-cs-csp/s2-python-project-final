@@ -1,7 +1,4 @@
-📝 Boggle Game Worksheet
-========================
-
-Part A: Fill in the Blanks
+Part A: Work out the missing code moments
 ---------------------------
 
 1. What are the dimensions of the screen?
@@ -11,7 +8,15 @@ Part A: Fill in the Blanks
    → ________________________________________________________________
    → ________________________________________________________________
 
-3. What are the correct score values for each word length in word_score(word)?
+
+3. generate_board: You need to create the 4x4 board of letters; 
+   → Complete the range(...) moments - remember you are creating a 4x4 board
+   → Grab the die from BOGGLE_DICE - this is simple list of strings
+   → Grab a random letter from the "die" you grabbed in the previous set_caption
+   → deal with boggle_dice_index
+   → append the row to temp_board
+
+4. What are the correct score values for each word length in word_score(word)?
    - length < 3 → __________
    - length 3–4 → __________
    - length == 5 → __________
@@ -19,13 +24,14 @@ Part A: Fill in the Blanks
    - length == 7 → __________
    - length >= 8 → __________
 
-4. What happens when the player types a word and presses Enter?
+
+5. What happens when the player types a word and presses Enter?
    → ________________________________________________________________
    → ________________________________________________________________
 
-5. How is the game timer displayed and calculated?
-   - Time format shown: ___________
-   - Countdown logic: ______________________________________________
+6. How is the game timer displayed and calculated?
+   - Deal with duration: ___________
+   - Deal with messages for various situations.
 
 Part B: Discussion & Exploration
 --------------------------------

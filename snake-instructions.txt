@@ -1,6 +1,5 @@
 ===============================
 SNAKE GAME – WORKSHEET
-(Parson’s Problem Edition)
 ===============================
 
 You're given a partially completed Snake game. 
@@ -39,17 +38,12 @@ Q5: What should happen when the player presses Q or C?
     if event.key == pygame.K_q:
         game_over = ...
     elif event.key == pygame.K_c:
-        game_loop()
+        ...
 
 --------------------------------
 4. COLLISION AND SCORE
 --------------------------------
-Q6: How do we check if the snake hits the wall?
-
-    if x1 >= width or x1 < 0 or y1 >= height or y1 < 0:
-        ...
-
-Q7: What happens when the snake eats the food?
+Q6: What happens when the snake eats the food?
 
     if x1 == foodx and y1 == foody:
         foodx = ...
