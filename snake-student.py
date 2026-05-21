@@ -34,8 +34,8 @@ def game_loop():
 
     # STEP 2: snake head coordinates should be in the middle of the screen
     # based on the width and height
-    x1 = 0
-    y1 = 0
+    x1 = ...
+    y1 = ...
  
     x1_change = 0
     y1_change = 0
